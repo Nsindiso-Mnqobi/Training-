@@ -8,12 +8,27 @@ app = Flask(__name__)
 @app.route("/")
 
 def index():
-    return  render_template("index.html")
+    firstname = "Nsindiso"
+    test = "This is <strong>bold</strong> text"
+    certs = ["devnet", "CCNA", "CCNP", 45 ]
+    return  render_template("index.html", name=firstname, test=test, certs=certs) 
 
 @app.route("/user/<name>")
 
 def user(name):
-    return f"<h1>Hello {name}</h1>"
+    return  render_template("user.html", username= name)
+
+# Invalid URL
+@app.errorhandler(404)
+
+def page_not_found(e):
+    return render_template("404.html"), 404
+
+# Internale Server Error
+@app.errorhandler(500)
+
+def page_not_found(e):
+    return render_template("500.html"), 500
 
 
 if __name__=="main":
