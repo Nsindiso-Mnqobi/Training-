@@ -1,15 +1,21 @@
-<h1> Hell World </h1>
-<p> This is my first webpage!!! </p>
-<p> Isn't this cool </p>
-<p> My Name is {{ name }} </p>
-<h3> Certifications </h3>
+{% extends 'base.html' %}
 
-{% for cert in certs %}
+    {% block content %}
 
-    {% if cert == 45 %}
-        {{cert + 100}} <br/>
-    {% else %}
-        {{  cert  }} <br/>
-    {% endif %}
+    <h1> Hell World </h1>
+    <p> This is my first webpage!!! </p>
+    <p> Isn't this cool </p>
+    <p> My Name is {{ name }} </p>
+    <h3> Certifications </h3>
 
-{% endfor %}
+    {% for cert in certs %}
+
+        {% if cert == 45 %}
+            {{cert + 100}} <br/>
+        {% else %}
+            {{  cert  }} <br/>
+        {% endif %}
+
+    {% endfor %}
+
+{% endblock %}
